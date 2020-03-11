@@ -1,0 +1,142 @@
+Type Conversion:
+
+1. Number(value); -- to convert value to a number
+
+example: Number("30") --> gives 30
+
+When the below value is given to the above conversion, the value becomes whatever is in becomes
+Value	Becomes…
+-----------------
+undefined -	NaN
+null -	0
+true and false -	1 and 0
+string -	Whitespaces from the start and end are removed. If the remaining string is empty, the result is 0. Otherwise, the number is “read” from the string. An error gives NaN.
+
+
+2. Boolean Conversion – Occurs in logical operations. Can be performed with Boolean(value).
+
+Follows the rules:
+
+Value	Becomes…
+------------------
+0, null, undefined, NaN, ""	false
+any other value	true
+
+----------
+OPERATORS:
+----------
+
+Operator -- "+":
+-----------------
+Important notes on String operands with + operator:
+---------------------------------------------------
+Note that if one of the operands is a string, the other one is converted to a string too.
+
+For example:
+
+alert( '1' + 2 ); // "12"
+alert( 2 + '1' ); // "21"
+
+
+1. However, note that operations run from left to right. If there are two numbers followed by a string, the numbers will be 
+added before being converted to a string:
+
+alert(2 + 2 + '1' ); // "41" and not "221"
+
+2. String concatenation and conversion is a special feature of the binary plus +. Other arithmetic operators work only with 
+numbers and always convert their operands to numbers.
+
+For instance, subtraction and division:
+
+alert( 2 - '1' ); // 1
+alert( '6' / '2' ); // 3
+
+
++ as Unary operator:
+-------------------------
+
+The unary plus or, in other words, the plus operator + applied to a single value, doesn’t do anything to numbers. 
+But if the operand is not a number, the unary plus converts it into a number.
+// Converts non-numbers
+alert( +true ); // 1
+alert( +"" );   // 0
+
+-----
+NOTE: note that unary operators are higher precedence than corresponding binary ones
+------
+precedence priority
+17	unary plus	+
+17	unary negation	-
+15	multiplication	*
+15	division	/
+13	addition	+
+13	subtraction	-
+3	assignment	=
+
+--------
+Comma
+--------
+The comma operator , is one of the rarest and most unusual operators. Sometimes, it’s used to write shorter code, so we need 
+to know it in order to understand what’s going on.
+
+The comma operator allows us to evaluate several expressions, dividing them with a comma ,. Each of them is evaluated but only 
+the result of the last one is returned.
+
+For example:
+
+let a = (1 + 2, 3 + 4);
+
+alert( a ); // 7 (the result of 3 + 4)
+
+--------------------------------------
+Comma has a very low precedence:
+---------------------------------
+Please note that the comma operator has very low precedence, lower than =, so parentheses are important in the example above.
+
+Without them: a = 1 + 2, 3 + 4 evaluates + first, summing the numbers into a = 3, 7, then the 
+assignment operator = assigns a = 3, and the rest is ignored. It’s like (a = 1 + 2), 3 + 4.
+
+COMPARISIONS:
+-----------------
+A funny consequence
+It is possible that at the same time:
+
+Two values are equal.
+One of them is true as a boolean and the other one is false as a boolean.
+For example:
+
+let a = 0;
+alert( Boolean(a) ); // false
+
+let b = "0";
+alert( Boolean(b) ); // true ->not empty string so true
+
+alert(a == b); // true!
+From JavaScript’s standpoint, this result is quite normal. An equality check converts values using the numeric conversion 
+(hence "0" becomes 0), while the explicit Boolean conversion uses another set of rules.
+
+------------------------------
+Strange result: null vs 0
+--------------------------
+Let’s compare null with a zero:
+
+alert( null > 0 );  // (1) false
+alert( null == 0 ); // (2) false
+alert( null >= 0 ); // (3) true
+
+Mathematically, that’s strange. The last result states that "null is greater than or equal to zero", 
+so in one of the comparisons above it must be true, but they are both false.
+
+The reason is that an equality check == and comparisons > < >= <= work differently. Comparisons convert null to a number, 
+treating it as 0. That’s why (3) null >= 0 is true and (1) null > 0 is false.
+
+On the other hand, the equality check == for undefined and null is defined such that, without any conversions,
+ they equal each other and don’t equal anything else. That’s why (2) null == 0 is false.
+-----------------------------
+An incomparable undefined:
+--------------------------
+The value undefined shouldn’t be compared to other values:
+
+alert( undefined > 0 ); // false (1)
+alert( undefined < 0 ); // false (2)
+alert( undefined == 0 ); // false (3)

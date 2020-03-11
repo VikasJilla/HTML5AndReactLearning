@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .form {
+            width: 50% !important;
+            width: 360px;
+            margin: 0 auto !important;
+            background-color: white;
+            color: black;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            position: relative;
+            box-shadow: 0 1px 1px #888;
+            text-align: center
+        }
+
+        .submit-td {
+            padding: 18px;
+        }
+
+        .submitBtn {
+            background-color: #00aeef;
+            border-radius: 14px;
+            text-decoration: dashed;
+            /* width: 50%; */
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 22px;
+            padding-right: 22px;
+            border-width: 0px;
+            color: aliceblue;
+            text-align: center;
+            align-self: center;
+            height: 28px;
+        }
+
+        .formFieldTD {
+            padding: 5px;
+            width: 30%;
+        }
+
+        .formField {
+            width: 60%;
+            padding: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.459);
+        }
+
+        .formField:focus {
+            border: 1px solid black;
+        }
+    </style>
+    <script src="alert.js"/></script>
+</head>
+
+<body
+    style="color: wheat;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; background-color:#ccc ;">
+    <script>
+        alert("I'm Javascript")
+        </script>
+    <form class="form">
+        <table>
+            <tr>
+                <td align="center">
+                    <label style="font-size: 2.5em;">Login</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="formFieldTD" align="center"><input type="text" placeholder="Email" class="formField"></td>
+            </tr>
+            <tr>
+                <td class="formFieldTD" align="center"> <input type="text" name="lastname" placeholder="Password"
+                        class="formField"></td>
+            </tr>
+            <tr>
+                <td class="submit-td" align="center"><label class="submitBtn">Login</label></td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+
+</html>
