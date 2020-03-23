@@ -43,3 +43,20 @@
 //     i++;
 // }
 
+
+
+
+function showAnAlert(val = pow(2,3)){
+    alert('showing ashu is sony ' + val);
+}
+
+let aler = showAnAlert;
+aler();
+
+function pow(a,b){
+    return a**b;
+}
+
+function min(a,b){
+    return a < b ? a : b;
+}

@@ -183,3 +183,47 @@ break label; // doesn't jumps to the label below
 
 label: for (...)
 A call to break/continue is only possible from inside a loop and the label must be somewhere above the directive.
+
+
+
+--------------
+FUNCTIONS:
+--------------
+Never add a newline between return and the value
+For a long expression in return, it might be tempting to put it on a separate line, like this:
+
+return
+ (some + long + expression + or + whatever * f(a) + f(b))
+That doesn’t work, because JavaScript assumes a semicolon after return. That’ll work the same as:
+
+       return;
+ (some + long + expression + or + whatever * f(a) + f(b))
+So, it effectively becomes an empty return.
+
+If we want the returned expression to wrap across multiple lines, we should start it at the same line as return. Or at least put the opening parentheses there as follows:
+
+return (
+  some + long + expression
+  + or +
+  whatever * f(a) + f(b)
+  )
+And it will work just as we expect it to.
+
+
+
+Naming a function:
+-------------------
+Functions are actions. So their name is usually a verb. It should be brief, as accurate as possible and describe what the function does, so that someone reading the code gets an indication of what the function does.
+
+It is a widespread practice to start a function with a verbal prefix which vaguely describes the action. There must be an agreement within the team on the meaning of the prefixes.
+
+For instance, functions that start with "show" usually show something.
+
+Function starting with…
+
+"get…" – return a value,
+"calc…" – calculate something,
+"create…" – create something,
+"check…" – check something and return a boolean, etc.
+
+
